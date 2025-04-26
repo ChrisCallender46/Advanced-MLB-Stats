@@ -3,7 +3,7 @@ library(tidyverse)
 # Exploratory Data Analysis (EDA)
 data <- WAR_vs_wRC_ |>
   select(!Player) |>
-  filter(WAR_vs_wRC_$`Career wRC+` < 200)
+  filter(WAR_vs_wRC_$`wRC+` < 200)
 
 data <- data |>
   mutate(
@@ -12,23 +12,23 @@ data <- data |>
 
 View(cor(data))
 
-ggplot(data, aes(x = `Career wRC+`, y = `Career WAR`)) +
+ggplot(data, aes(x = `wRC+`, y = `WAR`)) +
   geom_point() +
   geom_smooth()
 
-ggplot(data, aes(x = wOBA, y = `Career WAR`)) +
+ggplot(data, aes(x = wOBA, y = `WAR`)) +
   geom_point() +
   geom_smooth()
 
-# ggplot(data, aes(x = OBP, y = `Career WAR`)) +
+# ggplot(data, aes(x = OBP, y = `WAR`)) +
 #   geom_point() +
 #   geom_smooth()
 # 
-# ggplot(data, aes(x = OPS, y = `Career WAR`)) +
+# ggplot(data, aes(x = OPS, y = `WAR`)) +
 #   geom_point() +
 #   geom_smooth()
 
-ggplot(data, aes(x = `OPS+`, y = `Career WAR`)) +
+ggplot(data, aes(x = `OPS+`, y = `WAR`)) +
   geom_point() +
   geom_smooth()
 
